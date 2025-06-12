@@ -8,7 +8,7 @@ import {
   FiHeart,
   FiList,
   FiMenu,
-  FiX
+  FiX,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
@@ -61,7 +61,7 @@ const Sidebar = ({ onNavigate, currentPage }) => {
           ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0
         `}
       >
-        <div className="flex flex-col h-full justify-between">
+        <div className="flex flex-col h-screen">
           <div>
             <h2 className="text-2xl font-semibold mb-8 mt-2 px-4">Dashboard</h2>
             <ul className="space-y-2">
@@ -132,14 +132,14 @@ const Sidebar = ({ onNavigate, currentPage }) => {
             </ul>
           </div>
 
-          <div className="mb-4 px-4">
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 text-red-400 hover:text-white cursor-pointer w-full py-3"
-            >
-              <FiLogOut /> Logout
-            </button>
-          </div>
+          <div className="mt-10 px-4 mb-4">
+    <button
+      onClick={handleLogout}
+      className="flex items-center gap-2 text-red-400 hover:text-white cursor-pointer w-full py-3"
+    >
+      <FiLogOut /> Logout
+    </button>
+  </div>
         </div>
       </div>
 
