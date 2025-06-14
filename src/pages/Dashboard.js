@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Dashboard/Sidebar";
 import Topbar from "./Dashboard/Topbar";
@@ -133,7 +132,6 @@ function App() {
         {currentPage === "Dashboard" && (
           <>
             <div className="flex flex-wrap gap-4 text-white mb-6">
-              {/* Genre Filter */}
               <select
                 onChange={(e) => setGenre(e.target.value)}
                 className="bg-gray-800 p-2 rounded"
@@ -190,18 +188,48 @@ function App() {
               <p className="text-white mt-4">Movie not available.</p>
             )}
 
-            {searchTerm === "" && genre === "" && year === "" && rating === "" && sortBy === "" && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                <MovieListSection title="Top Rated" items={topRated} />
-                <MovieListSection title="Trending" items={trending} />
-                <MovieListSection title="Upcoming" items={upcoming} />
-              </div>
-            )}
+            {searchTerm === "" &&
+              genre === "" &&
+              year === "" &&
+              rating === "" &&
+              sortBy === "" && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                  <MovieListSection title="Top Rated" items={topRated} />
+                  <MovieListSection title="Trending" items={trending} />
+                  <MovieListSection title="Upcoming" items={upcoming} />
+                </div>
+              )}
           </>
         )}
 
+        {currentPage === "Favorites" && (
+          <MovieSection
+            title="My Favorites"
+            movies={favorites}
+            favorites={favorites}
+            watchlist={watchlist}
+            onToggleFavorite={handleToggleFavorite}
+            onToggleWatchlist={handleToggleWatchlist}
+            onWatchTrailer={handleWatchTrailer}
+          />
+        )}
+
+        {currentPage === "Watchlist" && (
+          <MovieSection
+            title="My Watchlist"
+            movies={watchlist}
+            favorites={favorites}
+            watchlist={watchlist}
+            onToggleFavorite={handleToggleFavorite}
+            onToggleWatchlist={handleToggleWatchlist}
+            onWatchTrailer={handleWatchTrailer}
+          />
+        )}
+
         {/* Trailer Modal */}
-        {trailerUrl && <TrailerModal trailerUrl={trailerUrl} onClose={() => setTrailerUrl("")} />}
+        {trailerUrl && (
+          <TrailerModal trailerUrl={trailerUrl} onClose={() => setTrailerUrl("")} />
+        )}
       </div>
     </div>
   );
