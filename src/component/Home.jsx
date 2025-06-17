@@ -3,6 +3,7 @@ import SearchAndToggle from './SearchAndToggle';
 import MovieGrid from './MovieGrid';
 import Sidebar from './Sidebar';
 import Footer from './footer';
+import { DarkModeContext } from '../context/DarkModeContext';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
